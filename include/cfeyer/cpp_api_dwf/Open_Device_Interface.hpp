@@ -20,36 +20,32 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#ifndef CFEYER__CPP_API_DWF__DEVICE_INTERFACE_HPP
-#define CFEYER__CPP_API_DWF__DEVICE_INTERFACE_HPP
+#ifndef CFEYER__CPP_API_DWF__OPEN_DEVICE_INTERFACE_HPP
+#define CFEYER__CPP_API_DWF__OPEN_DEVICE_INTERFACE_HPP
 
-#include <string>
+
+#include <cfeyer/cpp_api_dwf/Device_Interface.hpp>
+
 
 namespace cfeyer {
 namespace cpp_api_dwf {
 
-class Open_Device_Interface;
+class Analog_Output_Channels_Interface;
 
-class Device_Interface
+class Open_Device_Interface : virtual public ::cfeyer::cpp_api_dwf::Device_Interface
 {
    public:
 
-      Device_Interface( const Device_Interface & ) = delete;
-      Device_Interface & operator = ( const Device_Interface & ) = delete;
+      Open_Device_Interface( const Open_Device_Interface & ) = delete;
+      Open_Device_Interface & operator = ( const Open_Device_Interface & ) = delete;
 
-      virtual ~Device_Interface() {}
+      virtual ~Open_Device_Interface() {}
 
-      virtual std::string get_name() const = 0;
-      virtual std::string get_user_name() const = 0;
-      virtual std::string get_serial_number() const = 0;
-
-      virtual bool is_busy() const = 0;
-
-      virtual ::cfeyer::cpp_api_dwf::Open_Device_Interface * open() = 0;
+      virtual Analog_Output_Channels_Interface & get_analog_outputs() = 0;
 
    protected:
 
-      Device_Interface() {}
+      Open_Device_Interface() {}
 
    
 };
@@ -57,4 +53,4 @@ class Device_Interface
 } // namespace cpp_api_dwf
 } // namespace cfeyer
 
-#endif /* CFEYER__CPP_API_DWF__DEVICE_INTERFACE_HPP */
+#endif /* CFEYER__CPP_API_DWF__OPEN_DEVICE_INTERFACE_HPP */
