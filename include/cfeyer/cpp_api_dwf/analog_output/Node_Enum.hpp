@@ -20,39 +20,24 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#ifndef CFEYER__CPP_API_DWF__OPEN_DEVICE_INTERFACE_HPP
-#define CFEYER__CPP_API_DWF__OPEN_DEVICE_INTERFACE_HPP
+#ifndef CFEYER__CPP_API_DWF__ANALOG_OUTPUT__NODE_ENUM_HPP_HPP
+#define CFEYER__CPP_API_DWF__ANALOG_OUTPUT__NODE_ENUM_HPP_HPP
 
-
-#include <cfeyer/cpp_api_dwf/Device_Interface.hpp>
-
+#include <string>
 
 namespace cfeyer {
 namespace cpp_api_dwf {
-
 namespace analog_output {
-   class Channels_Interface;
-}
 
-class Open_Device_Interface : virtual public ::cfeyer::cpp_api_dwf::Device_Interface
+enum class Node_Enum
 {
-   public:
-
-      Open_Device_Interface( const Open_Device_Interface & ) = delete;
-      Open_Device_Interface & operator = ( const Open_Device_Interface & ) = delete;
-
-      virtual ~Open_Device_Interface() {}
-
-      virtual ::cfeyer::cpp_api_dwf::analog_output::Channels_Interface & get_analog_outputs() = 0;
-
-   protected:
-
-      Open_Device_Interface() {}
-
-   
+   carrier,
+   amplitude_modulation,
+   frequency_modulation
 };
 
+} // namespace analog_output
 } // namespace cpp_api_dwf
 } // namespace cfeyer
 
-#endif /* CFEYER__CPP_API_DWF__OPEN_DEVICE_INTERFACE_HPP */
+#endif /* CFEYER__CPP_API_DWF__ANALOG_OUTPUT__NODE_ENUM_HPP_HPP */

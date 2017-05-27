@@ -20,34 +20,35 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#ifndef CFEYER__CPP_API_DWF__ANALOG_OUTPUT_CHANNELS_INTERFACE_HPP
-#define CFEYER__CPP_API_DWF__ANALOG_OUTPUT_CHANNELS_INTERFACE_HPP
+#ifndef CFEYER__CPP_API_DWF__ANALOG_OUTPUT__CHANNEL_INTERFACE_HPP
+#define CFEYER__CPP_API_DWF__ANALOG_OUTPUT__CHANNEL_INTERFACE_HPP
 
 namespace cfeyer {
 namespace cpp_api_dwf {
+namespace analog_output {
 
-class Analog_Output_Channel_Interface;
-
-class Analog_Output_Channels_Interface
+class Channel_Interface
 {
    public:
 
-      Analog_Output_Channels_Interface( const Analog_Output_Channels_Interface & ) = delete;
-      Analog_Output_Channels_Interface & operator = ( const Analog_Output_Channels_Interface & ) = delete;
+      Channel_Interface( const Channel_Interface & ) = delete;
+      Channel_Interface & operator = ( const Channel_Interface & ) = delete;
 
-      virtual ~Analog_Output_Channels_Interface() {}
+      virtual ~Channel_Interface() {}
 
-      virtual int get_count() const = 0;
-      virtual Analog_Output_Channel_Interface & get_channel( int channel_index ) = 0;
+      virtual void enable() = 0;
+      virtual void disable() = 0;
+      virtual bool is_enabled() const = 0;
 
    protected:
 
-      Analog_Output_Channels_Interface() {}
+      Channel_Interface() {}
 
    
 };
 
+} // namespace analog_output
 } // namespace cpp_api_dwf
 } // namespace cfeyer
 
-#endif /* CFEYER__CPP_API_DWF__ANALOG_OUTPUT_CHANNELS_INTERFACE_HPP */
+#endif /* CFEYER__CPP_API_DWF__ANALOG_OUTPUT__CHANNEL_INTERFACE_HPP */
