@@ -36,9 +36,9 @@ class Channel_Interface
 
       virtual ~Channel_Interface() {}
 
-      virtual void enable() = 0;
-      virtual void disable() = 0;
-      virtual bool is_enabled() const = 0;
+      virtual void start() = 0;
+      virtual void stop() = 0;
+      virtual void reset() = 0;
 
    protected:
 

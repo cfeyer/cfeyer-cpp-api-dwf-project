@@ -41,6 +41,10 @@ class Channels_Interface
       virtual int get_count() const = 0;
       virtual Channel_Interface & get_channel( int channel_index ) = 0;
 
+      virtual void start_all() = 0;
+      virtual void stop_all() = 0;
+      virtual void reset_all() = 0;
+
    protected:
 
       Channels_Interface() {}
