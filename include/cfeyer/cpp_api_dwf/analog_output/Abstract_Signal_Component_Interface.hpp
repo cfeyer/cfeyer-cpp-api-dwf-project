@@ -23,11 +23,11 @@
 #ifndef CFEYER__CPP_API_DWF__ANALOG_OUTPUT__ABSTRACT_SIGNAL_COMPONENT_INTERFACE_HPP
 #define CFEYER__CPP_API_DWF__ANALOG_OUTPUT__ABSTRACT_SIGNAL_COMPONENT_INTERFACE_HPP
 
+#include <cfeyer/cpp_api_dwf/analog_output/Waveform_Shape_Enum.hpp>
+
 namespace cfeyer {
 namespace cpp_api_dwf {
 namespace analog_output {
-
-enum class Waveform_Shape_Enum;
 
 class Abstract_Signal_Component_Interface
 {
@@ -39,8 +39,8 @@ class Abstract_Signal_Component_Interface
       virtual void disable() = 0;
       virtual bool is_enabled() const = 0;
 
-      virtual void set_waveform_shape( ::cfeyer::cpp_api_dwf::analog_output::Waveform_Shape_Enum waveform ) = 0;
-      virtual ::cfeyer::cpp_api_dwf::analog_output::Waveform_Shape_Enum get_waveform_shape() const = 0;
+      virtual void set_waveform_shape( ::cfeyer::cpp_api_dwf::analog_output::Waveform_Shape::Enum waveform ) = 0;
+      virtual ::cfeyer::cpp_api_dwf::analog_output::Waveform_Shape::Enum get_waveform_shape() const = 0;
 
       virtual void write( double samples[], int sample_count ) = 0;
 

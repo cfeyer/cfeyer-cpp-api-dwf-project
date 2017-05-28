@@ -27,7 +27,10 @@ namespace cfeyer {
 namespace cpp_api_dwf {
 namespace analog_output {
 
-enum class Waveform_Shape_Enum
+namespace Waveform_Shape
+{
+
+enum Enum
 {
    constant,
    sinusoid,
@@ -39,6 +42,8 @@ enum class Waveform_Shape_Enum
    custom,
    play
 };
+
+} // namespace Waveform_Shape
 
 } // namespace analog_output
 } // namespace cpp_api_dwf

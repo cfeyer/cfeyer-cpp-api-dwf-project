@@ -29,8 +29,6 @@ namespace cfeyer {
 namespace cpp_api_dwf {
 namespace analog_output {
 
-enum class Waveform_Shape_Enum;
-
 class Carrier_Component_Interface : virtual public Abstract_Signal_Component_Interface
 {
    public:
