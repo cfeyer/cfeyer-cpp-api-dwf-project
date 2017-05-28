@@ -32,8 +32,6 @@ class Library_Interface
 {
    public:
 
-      Library_Interface( const Library_Interface & ) = delete;
-      Library_Interface & operator = ( const Library_Interface & ) = delete;
       virtual ~Library_Interface() {}
 
       virtual ::cfeyer::cpp_api_dwf::Device_Enumerator_Interface & get_device_enumerator() = 0;
@@ -41,6 +39,11 @@ class Library_Interface
    protected:
 
       Library_Interface() {}
+
+   private:
+
+      Library_Interface( const Library_Interface & ); // disallow
+      Library_Interface & operator = ( const Library_Interface & ); // disallow
 };
 
 } // namespace dwf_plusplus_api

@@ -33,9 +33,6 @@ class Channel_Interface
 {
    public:
 
-      Channel_Interface( const Channel_Interface & ) = delete;
-      Channel_Interface & operator = ( const Channel_Interface & ) = delete;
-
       virtual ~Channel_Interface() {}
 
       virtual void start() = 0;
@@ -48,7 +45,11 @@ class Channel_Interface
 
       Channel_Interface() {}
 
+   private:
    
+      Channel_Interface( const Channel_Interface & ); // disallow
+      Channel_Interface & operator = ( const Channel_Interface & ); // disallow
+
 };
 
 } // namespace analog_output

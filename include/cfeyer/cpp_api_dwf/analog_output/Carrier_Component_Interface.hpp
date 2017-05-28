@@ -35,9 +35,6 @@ class Carrier_Component_Interface : virtual public Abstract_Signal_Component_Int
 {
    public:
 
-      Carrier_Component_Interface( const Carrier_Component_Interface & ) = delete;
-      Carrier_Component_Interface & operator = ( const Carrier_Component_Interface & ) = delete;
-
       virtual ~Carrier_Component_Interface() {}
 
       virtual void set_amplitude_volts( double amplitude ) = 0;
@@ -48,7 +45,12 @@ class Carrier_Component_Interface : virtual public Abstract_Signal_Component_Int
    protected:
 
       Carrier_Component_Interface() {}
+
+   private:
    
+      Carrier_Component_Interface( const Carrier_Component_Interface & ); // disallow
+      Carrier_Component_Interface & operator = ( const Carrier_Component_Interface & ); // disallow
+
 };
 
 } // namespace analog_output

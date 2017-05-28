@@ -32,8 +32,6 @@ class Device_Enumerator_Interface
 {
    public:
 
-      Device_Enumerator_Interface( const Device_Enumerator_Interface & ) = delete;
-      Device_Enumerator_Interface & operator = ( const Device_Enumerator_Interface & ) = delete;
       virtual ~Device_Enumerator_Interface() {}
 
       virtual int get_device_count() const = 0;
@@ -42,6 +40,11 @@ class Device_Enumerator_Interface
    protected:
 
       Device_Enumerator_Interface() {}
+
+   private:
+
+      Device_Enumerator_Interface( const Device_Enumerator_Interface & ); // disallow
+      Device_Enumerator_Interface & operator = ( const Device_Enumerator_Interface & ); // disallow
 };
 
 } // namespace dwf_plusplus_api

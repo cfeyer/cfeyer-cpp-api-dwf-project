@@ -38,9 +38,6 @@ class Open_Device_Interface : virtual public ::cfeyer::cpp_api_dwf::Device_Inter
 {
    public:
 
-      Open_Device_Interface( const Open_Device_Interface & ) = delete;
-      Open_Device_Interface & operator = ( const Open_Device_Interface & ) = delete;
-
       virtual ~Open_Device_Interface() {}
 
       virtual ::cfeyer::cpp_api_dwf::analog_output::Channels_Interface & get_analog_outputs() = 0;
@@ -49,7 +46,10 @@ class Open_Device_Interface : virtual public ::cfeyer::cpp_api_dwf::Device_Inter
 
       Open_Device_Interface() {}
 
-   
+   private:
+
+      Open_Device_Interface( const Open_Device_Interface & ); // disallow
+      Open_Device_Interface & operator = ( const Open_Device_Interface & ); // disallow
 };
 
 } // namespace cpp_api_dwf

@@ -33,9 +33,6 @@ class Channels_Interface
 {
    public:
 
-      Channels_Interface( const Channels_Interface & ) = delete;
-      Channels_Interface & operator = ( const Channels_Interface & ) = delete;
-
       virtual ~Channels_Interface() {}
 
       virtual int get_count() const = 0;
@@ -48,6 +45,11 @@ class Channels_Interface
    protected:
 
       Channels_Interface() {}
+
+   private:
+
+      Channels_Interface( const Channels_Interface & ); // disallow
+      Channels_Interface & operator = ( const Channels_Interface & ); // disallow
 
 };
 

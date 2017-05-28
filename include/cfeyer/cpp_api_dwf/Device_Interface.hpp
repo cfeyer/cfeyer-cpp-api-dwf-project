@@ -34,9 +34,6 @@ class Device_Interface
 {
    public:
 
-      Device_Interface( const Device_Interface & ) = delete;
-      Device_Interface & operator = ( const Device_Interface & ) = delete;
-
       virtual ~Device_Interface() {}
 
       virtual std::string get_name() const = 0;
@@ -53,7 +50,10 @@ class Device_Interface
 
       Device_Interface() {}
 
-   
+   private:
+
+      Device_Interface( const Device_Interface & ); // disallow
+      Device_Interface & operator = ( const Device_Interface & ); // disallow
 };
 
 } // namespace cpp_api_dwf

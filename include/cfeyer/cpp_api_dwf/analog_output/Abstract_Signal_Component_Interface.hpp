@@ -33,9 +33,6 @@ class Abstract_Signal_Component_Interface
 {
    public:
 
-      Abstract_Signal_Component_Interface( const Abstract_Signal_Component_Interface & ) = delete;
-      Abstract_Signal_Component_Interface & operator = ( const Abstract_Signal_Component_Interface & ) = delete;
-
       virtual ~Abstract_Signal_Component_Interface() {}
 
       virtual void enable() = 0;
@@ -55,7 +52,12 @@ class Abstract_Signal_Component_Interface
    protected:
 
       Abstract_Signal_Component_Interface() {}
-   
+
+   private:
+
+      Abstract_Signal_Component_Interface( const Abstract_Signal_Component_Interface & ); // disallow
+      Abstract_Signal_Component_Interface & operator = ( const Abstract_Signal_Component_Interface & ); // disallow
+
 };
 
 } // namespace analog_output
