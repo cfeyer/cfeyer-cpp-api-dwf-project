@@ -20,43 +20,39 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#ifndef CFEYER__CPP_API_DWF__DEVICE_INTERFACE_HPP
-#define CFEYER__CPP_API_DWF__DEVICE_INTERFACE_HPP
+#ifndef CFEYER__CPP_API_DWF__ANALOG_OUTPUT__CARRIER_COMPONENT_INTERFACE_HPP
+#define CFEYER__CPP_API_DWF__ANALOG_OUTPUT__CARRIER_COMPONENT_INTERFACE_HPP
 
-#include <string>
+#include <cfeyer/cpp_api_dwf/analog_output/Abstract_Signal_Component_Interface.hpp>
 
 namespace cfeyer {
 namespace cpp_api_dwf {
+namespace analog_output {
 
-class Open_Device_Interface;
+enum class Waveform_Shape_Enum;
 
-class Device_Interface
+class Carrier_Component_Interface : virtual public Abstract_Signal_Component_Interface
 {
    public:
 
-      Device_Interface( const Device_Interface & ) = delete;
-      Device_Interface & operator = ( const Device_Interface & ) = delete;
+      Carrier_Component_Interface( const Carrier_Component_Interface & ) = delete;
+      Carrier_Component_Interface & operator = ( const Carrier_Component_Interface & ) = delete;
 
-      virtual ~Device_Interface() {}
+      virtual ~Carrier_Component_Interface() {}
 
-      virtual std::string get_name() const = 0;
-      virtual std::string get_user_name() const = 0;
-      virtual std::string get_serial_number() const = 0;
-
-      virtual bool is_busy() const = 0;
-
-      // returns point to new Open_Device_Interface, which is owned
-      // by and must be deleted by user
-      virtual ::cfeyer::cpp_api_dwf::Open_Device_Interface * open() = 0;
+      virtual void set_amplitude_volts( double amplitude ) = 0;
+      virtual double get_amplitude_volts() const = 0;
+      virtual double get_min_amplitude_volts() const = 0;
+      virtual double get_max_amplitude_volts() const = 0;
 
    protected:
 
-      Device_Interface() {}
-
+      Carrier_Component_Interface() {}
    
 };
 
+} // namespace analog_output
 } // namespace cpp_api_dwf
 } // namespace cfeyer
 
-#endif /* CFEYER__CPP_API_DWF__DEVICE_INTERFACE_HPP */
+#endif /* CFEYER__CPP_API_DWF__ANALOG_OUTPUT__CARRIER_COMPONENT_INTERFACE_HPP */

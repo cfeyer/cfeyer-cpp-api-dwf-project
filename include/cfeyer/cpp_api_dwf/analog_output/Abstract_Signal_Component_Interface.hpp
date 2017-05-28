@@ -20,34 +20,41 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#ifndef CFEYER__CPP_API_DWF__ANALOG_OUTPUT__CHANNEL_INTERFACE_HPP
-#define CFEYER__CPP_API_DWF__ANALOG_OUTPUT__CHANNEL_INTERFACE_HPP
+#ifndef CFEYER__CPP_API_DWF__ANALOG_OUTPUT__ABSTRACT_SIGNAL_COMPONENT_INTERFACE_HPP
+#define CFEYER__CPP_API_DWF__ANALOG_OUTPUT__ABSTRACT_SIGNAL_COMPONENT_INTERFACE_HPP
 
 namespace cfeyer {
 namespace cpp_api_dwf {
 namespace analog_output {
 
-class Carrier_Component_Interface;
+enum class Waveform_Shape_Enum;
 
-class Channel_Interface
+class Abstract_Signal_Component_Interface
 {
    public:
 
-      Channel_Interface( const Channel_Interface & ) = delete;
-      Channel_Interface & operator = ( const Channel_Interface & ) = delete;
+      Abstract_Signal_Component_Interface( const Abstract_Signal_Component_Interface & ) = delete;
+      Abstract_Signal_Component_Interface & operator = ( const Abstract_Signal_Component_Interface & ) = delete;
 
-      virtual ~Channel_Interface() {}
+      virtual ~Abstract_Signal_Component_Interface() {}
 
-      virtual void start() = 0;
-      virtual void stop() = 0;
-      virtual void reset() = 0;
+      virtual void enable() = 0;
+      virtual void disable() = 0;
+      virtual bool is_enabled() const = 0;
 
-      virtual ::cfeyer::cpp_api_dwf::analog_output::Carrier_Component_Interface * get_carrier_component() const = 0;
+      virtual void set_waveform_shape( ::cfeyer::cpp_api_dwf::analog_output::Waveform_Shape_Enum waveform ) = 0;
+      virtual ::cfeyer::cpp_api_dwf::analog_output::Waveform_Shape_Enum get_waveform_shape() const = 0;
+
+      virtual void write( double samples[], int sample_count ) = 0;
+
+      virtual void set_sample_frequency_hz( double frequency ) = 0;
+      virtual double get_sample_frequency_hz() const = 0;
+      virtual double get_min_sample_frequency_hz() const = 0;
+      virtual double get_max_sample_frequency_hz() const = 0;
 
    protected:
 
-      Channel_Interface() {}
-
+      Abstract_Signal_Component_Interface() {}
    
 };
 
@@ -55,4 +62,4 @@ class Channel_Interface
 } // namespace cpp_api_dwf
 } // namespace cfeyer
 
-#endif /* CFEYER__CPP_API_DWF__ANALOG_OUTPUT__CHANNEL_INTERFACE_HPP */
+#endif /* CFEYER__CPP_API_DWF__ANALOG_OUTPUT__ABSTRACT_SIGNAL_COMPONENT_INTERFACE_HPP */

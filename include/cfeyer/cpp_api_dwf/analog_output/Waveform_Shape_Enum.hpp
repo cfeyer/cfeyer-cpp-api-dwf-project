@@ -20,43 +20,28 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#ifndef CFEYER__CPP_API_DWF__DEVICE_INTERFACE_HPP
-#define CFEYER__CPP_API_DWF__DEVICE_INTERFACE_HPP
-
-#include <string>
+#ifndef CFEYER__CPP_API_DWF__ANALOG_OUTPUT__WAVEFORM_SHAPE_ENUM_HPP
+#define CFEYER__CPP_API_DWF__ANALOG_OUTPUT__WAVEFORM_SHAPE_ENUM_HPP
 
 namespace cfeyer {
 namespace cpp_api_dwf {
+namespace analog_output {
 
-class Open_Device_Interface;
-
-class Device_Interface
+enum class Waveform_Shape_Enum
 {
-   public:
-
-      Device_Interface( const Device_Interface & ) = delete;
-      Device_Interface & operator = ( const Device_Interface & ) = delete;
-
-      virtual ~Device_Interface() {}
-
-      virtual std::string get_name() const = 0;
-      virtual std::string get_user_name() const = 0;
-      virtual std::string get_serial_number() const = 0;
-
-      virtual bool is_busy() const = 0;
-
-      // returns point to new Open_Device_Interface, which is owned
-      // by and must be deleted by user
-      virtual ::cfeyer::cpp_api_dwf::Open_Device_Interface * open() = 0;
-
-   protected:
-
-      Device_Interface() {}
-
-   
+   constant,
+   sinusoid,
+   square,
+   triangle,
+   ramp_up,
+   ramp_down,
+   noise,
+   custom,
+   play
 };
 
+} // namespace analog_output
 } // namespace cpp_api_dwf
 } // namespace cfeyer
 
-#endif /* CFEYER__CPP_API_DWF__DEVICE_INTERFACE_HPP */
+#endif /* CFEYER__CPP_API_DWF__ANALOG_OUTPUT__WAVEFORM_SHAPE_ENUM_HPP */
