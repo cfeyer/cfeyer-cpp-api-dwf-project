@@ -43,6 +43,8 @@ class Abstract_Signal_Component_Interface
       virtual ::cfeyer::cpp_api_dwf::analog_output::Waveform_Shape::Enum get_waveform_shape() const = 0;
 
       virtual void set_data( double samples[], int sample_count ) = 0;
+      virtual int get_min_data_samples() const = 0;
+      virtual int get_max_data_samples() const = 0;
 
       virtual void set_sample_frequency_hz( double frequency ) = 0;
       virtual double get_sample_frequency_hz() const = 0;
