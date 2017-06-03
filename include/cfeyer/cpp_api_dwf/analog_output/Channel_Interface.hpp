@@ -39,6 +39,8 @@ class Channel_Interface
       virtual void stop() = 0;
       virtual void reset() = 0;
 
+      virtual void get_status() = 0;
+
       virtual ::cfeyer::cpp_api_dwf::analog_output::Carrier_Component_Interface * get_carrier_component() const = 0;
 
       virtual void set_repeat_count( int repeat_count ) = 0;

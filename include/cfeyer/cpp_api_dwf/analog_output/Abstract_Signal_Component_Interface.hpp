@@ -46,6 +46,11 @@ class Abstract_Signal_Component_Interface
       virtual int get_min_data_samples() const = 0;
       virtual int get_max_data_samples() const = 0;
 
+      virtual void write_play_samples( double samples[], int sample_count ) = 0;
+      virtual void get_play_status( int & free_sample_count,
+                                    int & lost_sample_count,
+                                    int & corrupted_sample_count ) const = 0;
+
       virtual void set_frequency_hz( double frequency ) = 0;
       virtual double get_frequency_hz() const = 0;
       virtual double get_min_frequency_hz() const = 0;
