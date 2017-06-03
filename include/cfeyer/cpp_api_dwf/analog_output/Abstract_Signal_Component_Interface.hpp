@@ -46,10 +46,10 @@ class Abstract_Signal_Component_Interface
       virtual int get_min_data_samples() const = 0;
       virtual int get_max_data_samples() const = 0;
 
-      virtual void set_sample_frequency_hz( double frequency ) = 0;
-      virtual double get_sample_frequency_hz() const = 0;
-      virtual double get_min_sample_frequency_hz() const = 0;
-      virtual double get_max_sample_frequency_hz() const = 0;
+      virtual void set_frequency_hz( double frequency ) = 0;
+      virtual double get_frequency_hz() const = 0;
+      virtual double get_min_frequency_hz() const = 0;
+      virtual double get_max_frequency_hz() const = 0;
 
    protected:
 
