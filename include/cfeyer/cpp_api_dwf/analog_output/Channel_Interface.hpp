@@ -41,6 +41,11 @@ class Channel_Interface
 
       virtual ::cfeyer::cpp_api_dwf::analog_output::Carrier_Component_Interface * get_carrier_component() const = 0;
 
+      virtual void set_repeat_count( int repeat_count ) = 0;
+      virtual int get_repeat_count() const = 0;
+      virtual int get_min_repeat_count() const = 0;
+      virtual int get_max_repeat_count() const = 0;
+
    protected:
 
       Channel_Interface() {}
