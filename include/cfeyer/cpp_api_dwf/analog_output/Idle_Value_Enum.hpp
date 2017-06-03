@@ -20,51 +20,25 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#ifndef CFEYER__CPP_API_DWF__ANALOG_OUTPUT__CHANNEL_INTERFACE_HPP
-#define CFEYER__CPP_API_DWF__ANALOG_OUTPUT__CHANNEL_INTERFACE_HPP
-
-#include <cfeyer/cpp_api_dwf/analog_output/Idle_Value_Enum.hpp>
+#ifndef CFEYER__CPP_API_DWF__ANALOG_OUTPUT__IDLE_VALUE_ENUM_HPP
+#define CFEYER__CPP_API_DWF__ANALOG_OUTPUT__IDLE_VALUE_ENUM_HPP
 
 namespace cfeyer {
 namespace cpp_api_dwf {
 namespace analog_output {
 
-class Carrier_Component_Interface;
-
-class Channel_Interface
+namespace Idle_Value
 {
-   public:
 
-      virtual ~Channel_Interface() {}
-
-      virtual void start() = 0;
-      virtual void stop() = 0;
-      virtual void reset() = 0;
-
-      virtual void get_status() = 0;
-
-      virtual void set_idle_value( ::cfeyer::cpp_api_dwf::analog_output::Idle_Value::Enum idle_value ) = 0;
-
-      virtual ::cfeyer::cpp_api_dwf::analog_output::Carrier_Component_Interface * get_carrier_component() const = 0;
-
-      virtual void set_repeat_count( int repeat_count ) = 0;
-      virtual int get_repeat_count() const = 0;
-      virtual int get_min_repeat_count() const = 0;
-      virtual int get_max_repeat_count() const = 0;
-
-   protected:
-
-      Channel_Interface() {}
-
-   private:
-   
-      Channel_Interface( const Channel_Interface & ); // disallow
-      Channel_Interface & operator = ( const Channel_Interface & ); // disallow
-
+enum Enum
+{
+   offset
 };
+
+} // namespace Idle_Value
 
 } // namespace analog_output
 } // namespace cpp_api_dwf
 } // namespace cfeyer
 
-#endif /* CFEYER__CPP_API_DWF__ANALOG_OUTPUT__CHANNEL_INTERFACE_HPP */
+#endif /* CFEYER__CPP_API_DWF__ANALOG_OUTPUT__IDLE_VALUE_ENUM_HPP */
